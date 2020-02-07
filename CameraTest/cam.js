@@ -8,7 +8,7 @@ var dv = document.getElementById('devices');
 //take pic
 document.getElementById('snap').addEventListener("click", function()
 {
-  contxt.drawImage(video,0,0,640,480);
+  contxt.drawImage(video,0,0,video.width,video.height);
   //convert to image
   img = canvas.toDataURL("image/png");
 });
