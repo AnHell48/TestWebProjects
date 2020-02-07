@@ -19,6 +19,7 @@ document.getElementById("convert").addEventListener("click", function()
 // have a overlay or a btn and when press it will ask for cam and turn it on
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
 {
+  getDevices();
   navigator.mediaDevices.getUserMedia({video:true}).then(function(stream)
   {
     video.srcObject = stream;
@@ -26,7 +27,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
   });
 }
 
-getDevices();
+
 async function getDevices()
 {
   var x;
