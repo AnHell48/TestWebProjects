@@ -32,6 +32,7 @@ async function getDevices()
   var x;
   const devices = await navigator.mediaDevices.enumerateDevices();
   devices.forEach(function(device) {
+    if(video.kind == "videoinput")
    x+= '--------'+ device.kind + ": " + device.label +
                 " id = " + device.deviceId;
   });
