@@ -23,13 +23,13 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
   navigator.mediaDevices.getUserMedia({video:true}).then(function(stream)
   {
     
-    getDevices();
     video.srcObject = stream;
     video.play();
   });
 }
 
 
+    getDevices();
 async function getDevices()
 {
   var x;
