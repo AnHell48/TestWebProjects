@@ -29,11 +29,12 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
 getDevices();
 async function getDevices()
 {
+  var x;
   const devices = await navigator.mediaDevices.enumerateDevices();
   devices.forEach(function(device) {
-    console.log(device.kind + ": " + device.label +
-                " id = " + device.deviceId);
+   x+= '--------'+ device.kind + ": " + device.label +
+                " id = " + device.deviceId;
   });
-  dv.innerHTML = devices;
+  dv.innerHTML = x;
   console.log(devices);
 }
