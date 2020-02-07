@@ -23,14 +23,14 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
   navigator.mediaDevices.getUserMedia({video:true}).then(function(stream)
   {
     
-  //getDevices();
+    getDevices();
     video.srcObject = stream;
     video.play();
   });
 }
 
 
-/*async function getDevices()
+async function getDevices()
 {
   var x;
   const devices = await navigator.mediaDevices.enumerateDevices();
@@ -41,5 +41,5 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
   });
   dv.innerHTML = x;
   console.log(devices);
-}*/
+}
 });
