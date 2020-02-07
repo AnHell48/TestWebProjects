@@ -30,6 +30,10 @@ getDevices();
 async function getDevices()
 {
   const devices = await navigator.mediaDevices.enumerateDevices();
+  devices.forEach(function(device) {
+    console.log(device.kind + ": " + device.label +
+                " id = " + device.deviceId);
+  });
   dv.innerHTML = devices;
   console.log(devices);
 }
