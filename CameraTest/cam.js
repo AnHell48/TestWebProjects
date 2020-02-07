@@ -1,3 +1,4 @@
+window.addEventListener("load", function(){
 var video = document.getElementById("video");
 var canvas = document.getElementById('canvas');
 var contxt = canvas.getContext("2d");
@@ -41,3 +42,4 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
   dv.innerHTML = x;
   console.log(devices);
 }*/
+});
