@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Camera</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
   </head>
   <body>
     <style media="screen">
@@ -18,10 +19,13 @@
       }
     </style>
 
-    <video id="video" width="640" height="480" autoplay></video>
-    <button id="snap" name="snap">Take the shot!</button>
-    <button id="convert" name="snap"> convert</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <video id="video" width="440" height="280" autoplay></video>
+    <button id="snap" name="snap" class="fas fa-camera"></button>
+    <button id="convert" > convert</button>
+
+    <button id="pauseRec" class="far fa-pause-circle"></button>
+    <button id="startRec" class="far fa-play-circle"></button>
+    <canvas id="canvas" ></canvas>
 
     <br>
     <p id="devices"></p>
