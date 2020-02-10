@@ -5,16 +5,16 @@ window.addEventListener("load", function(){
   var startRec = document.getElementById("startRec");
   var recorder;
   var canvas = document.getElementById('canvas');
-  var contxt = canvas.getContext("2d");
+  var contxt ;//= canvas.getContext("2d");
   var image;
   var recordedData = [];
   var dv = document.getElementById('devices');
   var camSettings = {
-    video:
-    {
-      width: {max:840},
-      height: {max:480},
-    }};
+    video: true
+    /*{
+      width: {ideal:140},
+      height: {ideal:280},
+    }*/};
 
   AskUserPermission();
 
@@ -24,10 +24,13 @@ window.addEventListener("load", function(){
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     video = document.getElementById("video");
+    contxt = canvas.getContext('2d');
 
-    contxt.drawImage(video,0,0,canvas.width,canvas.height);
+    contxt.drawImage(video,0,0,video.videoWidth,video.videoHeight);
     //convert to image
     img = canvas.toDataURL("image/png");
+    console.log(img);
+    console.log(video);
   });
 
 
