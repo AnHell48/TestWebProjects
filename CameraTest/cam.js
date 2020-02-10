@@ -21,8 +21,8 @@ window.addEventListener("load", function(){
   //take pic
   document.getElementById('snap').addEventListener("click", function()
   {
-    canvas.width = camSettings.video.width.max;
-    canvas.height = camSettings.video.height.max;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
     video = document.getElementById("video");
 
     contxt.drawImage(video,0,0,canvas.width,canvas.height);
@@ -128,7 +128,6 @@ window.addEventListener("load", function(){
     else {
       console.log("... what???");
     }
-
   }
 
   function VideoPreview()
