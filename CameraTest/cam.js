@@ -89,7 +89,7 @@
       video.srcObject = userCamStream;
       video.play();
       // video.requestFullscreen();
-      getDevices();
+      //getDevices();
     });
   }
 
