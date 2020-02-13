@@ -8,26 +8,31 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
   </head>
   <body>
-    <style media="screen">
-      video
-      {
-        border: 1px solid black;
-      }
-      canvas
-      {
-        border: 2px solid green;
-      }
-    </style>
 
-    <video id="video" width="440" height="280" autoplay></video>
-    <button id="snap" name="snap" class="fas fa-camera"></button>
-    <button id="convert" > convert</button>
+    <div class="media-box">
+      <div id="cam-overlay" >
+        <span class="fas fa-photo-video "></span>
+      </div>
+        <video id="video" width="440" height="280" autoplay>
+        </video>
+        <span id="media-preview">
+          <!-- canvas to show preview of picture -->
+          <canvas id="preview-canvas" width="80" height="60"></canvas>
+        </span>
+    </div>
 
-    <button id="pauseRec" class="far fa-pause-circle"></button>
-    <button id="startRec" class="far fa-play-circle"></button>
-    <canvas id="canvas" ></canvas>
+    <div id="mediaBtns">
+      <button id="takePhoto" title="Take a photo" class="fas fa-camera" disabled></button>
+      <button id="start-rec" title="Start Recording" class="fas fa-video" disabled></button>
+      <button id="pause-rec" title="Pause Recording" class="far fa-pause-circle" disabled></button>
+      <button id="delete-media" title="Delete photo or video" class="far fa-trash-alt" disabled></button>
+    </div>
+
+    <!-- hidden canvas to take picture -->
+    <canvas id="hidden-canvas"  class="hide"></canvas>
 
     <br>
+    
     <p id="devices"></p>
 
     <script src="cam.js" charset="utf-8"></script>

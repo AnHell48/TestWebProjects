@@ -5,4 +5,53 @@ button
   background-color: #00000000;
   cursor: pointer;
 
+  /* TEST ONLY CUZ NO INTERNET ********************* */
+  /* width: 20px;
+  height: 20px;
+  background-color: red; */
+}
+
+:disabled
+{
+  cursor: default;
+  opacity: 0.5;
+}
+
+video
+{
+  border: 1px solid black;
+}
+
+#cam-overlay
+{
+  position: absolute;
+  border: 2px solid #8b8b8b;
+  width: 440px;
+  height: 280px;
+  background-color: rgba(222, 222, 222, 0.81);
+  font-size: 100px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#cam-overlay span
+{
+  color: rgba(84, 84, 84, 0.57);
+  margin-top: 80px;
+}
+
+
+#media-preview
+{
+  position: absolute;
+  top: 218px;
+  left: 15px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.hide
+{
+  display: none;
 }
