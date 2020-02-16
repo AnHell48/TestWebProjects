@@ -1,3 +1,51 @@
+.main-container
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+/* screen from 710 and lower */
+@media screen and (max-width: 710px)
+ {
+   .media-box
+   {
+     margin: 0 auto;
+   }
+
+   .container
+   {
+     text-align: center;
+     padding-top: 40px;
+   }
+
+   .txtBox
+   {
+     width: 100%;
+     margin-top: 10px;
+   }
+
+   .lbl
+   {
+     padding-bottom: 10px;
+   }
+
+}
+
+/* screen from 711 and wider */
+@media screen and (min-width: 711px) and (max-width: 789px)
+{
+  .container
+  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+}
+
 button
 {
   font-size: 23px;
@@ -6,9 +54,9 @@ button
   cursor: pointer;
 
   /* TEST ONLY CUZ NO INTERNET ********************* */
-  /* width: 20px;
+   /* width: 20px;
   height: 20px;
-  background-color: red; */
+  background-color: red;  */
 }
 
 :disabled
@@ -22,6 +70,7 @@ video
   border: 1px solid black;
 }
 
+/* camera off overlay */
 #cam-overlay
 {
   position: absolute;
@@ -41,6 +90,9 @@ video
   margin-top: 80px;
 }
 
+/* camera overlay btns */
+
+
 
 #media-preview
 {
@@ -54,4 +106,10 @@ video
 .hide
 {
   display: none;
+}
+
+#btn-submit
+{
+  background-color: #abababbd;
+  border: 1px solid black;
 }

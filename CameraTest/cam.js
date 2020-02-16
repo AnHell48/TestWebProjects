@@ -9,8 +9,9 @@
   var previewCanvas = document.getElementById('preview-canvas');
   var deleteMedia = document.getElementById("delete-media");
   var dv = document.getElementById('devices');
-  var recorder, contxt, image, userCamStream;
+  var recorder, contxt, image, userCamStream, startTime;
   var isThereAVideo = false;
+  var isThereAPhoto = false;
   var recordedData = [];
   var recordingTime = 11000;//150000; //2.5 minutes
   var camSettings = {
@@ -89,19 +90,18 @@
       video.srcObject = userCamStream;
       video.play();
       // video.requestFullscreen();
-      //getDevices();
+      getDevices();
     });
   }
 
-// ERROR: WHEN COMPLETE ALONE RECORDING IT BUG
-
   function HandleDataAvaible(event)
   {
-    video.stop;
+    // recorder.stop();
     recordedData = [];
     deleteMedia.disabled = false;
     pauseRec.disabled = true;
     startRec.className = "fas fa-video";
+
     if(event.data.size > 0 && isThereAVideo)
     {
       recordedData.push(event.data);
@@ -120,6 +120,7 @@
     startRec.disabled = true;
     //can be deleted
     deleteMedia.disabled = false;
+    isThereAPhoto = true;
 
     hiddenCanvas.width = video.videoWidth;
     hiddenCanvas.height = video.videoHeight;
@@ -143,6 +144,10 @@
     //enable pause, recording can be paused
     pauseRec.disabled = false;
 
+    // video time
+    //startTime = video.currentTime;
+    //video.ontimeupdate =  UpdateTime;
+
     recorder.ondataavailable  = HandleDataAvaible;
 
     if(startRec.className === "fas fa-video")
@@ -152,14 +157,12 @@
       startRec.className = "far fa-stop-circle";
       startRec.title = "Stop Recoding";
       isThereAVideo = true;
+      console.log("play");
     }
     else if(startRec.className === "far fa-stop-circle")
     {
-        recorder.stop();
-        startRec.className = "fas fa-video";
-        startRec.title = "Start Recoding";
+        StopVideo();
     }
-    console.log(video.currentTime);
   }
 
   function PauseVideo()
@@ -181,9 +184,11 @@
   {
     var media = "video";
 
-    if(image != "")
+    if(isThereAPhoto)
     {
+      image = "";
       media = "photo";
+      isThereAPhoto = false;
     }
 
     if(confirm("Delete "+media+"?"))
@@ -205,6 +210,7 @@
       video.play();
       startRec.disabled = false;
 
+      StopVideo();
       EnableMedia();
     }
   }
@@ -224,6 +230,25 @@
     video.src = window.URL.createObjectURL(buffer);
     video.controls = true;
     video.play();
+  }
+
+  function UpdateTime()
+  {
+    var timelapse = video.currentTime - startTime;
+
+    if( timelapse > 0)
+    dv.innerHTML = timelapse;
+    console.log(Math.floor(timelapse));
+  }
+
+  function StopVideo()
+  {
+    if(startRec.title === "Stop Recoding")
+    {
+      recorder.stop();
+      startRec.className = "fas fa-video";
+      startRec.title = "Start Recoding";
+    }
   }
 
   // getDevices();

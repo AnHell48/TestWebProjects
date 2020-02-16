@@ -3,37 +3,51 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>User Camera</title>
+    <title>Sample Photo/Video</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
   </head>
   <body>
+    <a href="disenooriginal.html"><h3>Go To Original Design</h3></a> <br>
+    <div class="main-container">
+      <div class="media-box">
+        <div id="cam-overlay" >
+          <span class="fas fa-photo-video "></span>
+        </div>
+          <video id="video" width="440" height="280" autoplay>
+          </video>
+          <span id="media-preview">
+            <!-- canvas to show preview of picture -->
+            <canvas id="preview-canvas" width="80" height="60"></canvas>
+          </span>
+          <div id="mediaBtns">
+            <button id="takePhoto" title="Take a photo" class="fas fa-camera" disabled></button>
+            <button id="start-rec" title="Start Recording" class="fas fa-video" disabled></button>
+            <button id="pause-rec" title="Pause Recording" class="far fa-pause-circle" disabled></button>
+            <button id="delete-media" title="Delete photo or video" class="far fa-trash-alt" disabled></button>
+          </div>
 
-    <div class="media-box">
-      <div id="cam-overlay" >
-        <span class="fas fa-photo-video "></span>
+          <!-- hidden canvas to take picture -->
+          <canvas id="hidden-canvas"  class="hide"></canvas>
       </div>
-        <video id="video" width="440" height="280" autoplay>
-        </video>
-        <span id="media-preview">
-          <!-- canvas to show preview of picture -->
-          <canvas id="preview-canvas" width="80" height="60"></canvas>
-        </span>
-    </div>
-
-    <div id="mediaBtns">
-      <button id="takePhoto" title="Take a photo" class="fas fa-camera" disabled></button>
-      <button id="start-rec" title="Start Recording" class="fas fa-video" disabled></button>
-      <button id="pause-rec" title="Pause Recording" class="far fa-pause-circle" disabled></button>
-      <button id="delete-media" title="Delete photo or video" class="far fa-trash-alt" disabled></button>
-    </div>
-
-    <!-- hidden canvas to take picture -->
-    <canvas id="hidden-canvas"  class="hide"></canvas>
-
     <br>
-    
-    <p id="devices"></p>
+    <!-- <p id="devices"></p> -->
+
+    <form id="form1">
+         <div class="container">
+             <label for="sample" class="lbl">Sample ID :</label>
+             <input type="text" name="sample" class="txtBox" required>
+             <br><br>
+             <label for="mediaName" class="lbl">Photo Name :</label>
+             <input type="text" name="mediaName" class="txtBox" required >
+             <br><br>
+             <label for="data" class="lbl">Data :</label>
+             <input type="text" name="data" class="txtBox" required>
+             <br><br>
+             <button id="btn-submit" text="Submit">Submit </button>
+         </div>
+    </form>
+ </div>
 
     <script src="cam.js" charset="utf-8"></script>
   </body>
