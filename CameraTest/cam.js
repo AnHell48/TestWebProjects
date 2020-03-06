@@ -15,11 +15,13 @@
   var recordedData = [];
   var recordingTime = 11000;//150000; //2.5 minutes
   var camSettings = {
-    video: true
-    /*{
-        width: {ideal:140},
-        height: {ideal:280},
-      }*/};
+    video: 
+    {
+        width: {min:640, ideal:1280, max:1920},
+        height: { min: 480, ideal: 720, max: 1080 },
+        facingMode: { exact: "environment" }
+    }
+};
 
   // turn on cam.
   camOverlay.addEventListener("click", function()
