@@ -9,28 +9,40 @@
   </head>
   <body>
     <a href="disenooriginal.html"><h3>Go To Original Design</h3></a> <br>
-    <div class="main-container">
-      <div class="media-box">
-        <div id="cam-overlay" >
+    
+    
+      <div id="cam-box" class="media-box">
+        <div id="cam-overlay"  title="Turn on camera">
           <span class="fas fa-photo-video "></span>
         </div>
-          <video id="video" width="440" height="280" autoplay>
-          </video>
-          <span id="media-preview">
-            <!-- canvas to show preview of picture -->
-            <canvas id="preview-canvas" width="80" height="60"></canvas>
-          </span>
-          <div id="mediaBtns">
+          <div id="prev-img-pop" class="hide">
+              <img alt="Preview Image." id="img-prev"  width="430" height="280" />
+          </div>
+          <div id="cam-box-top" class="cam-box">   
+            <button id="change-cam-btn" title="Change camera" value="enviroment" >Front Cam </button>
+            <span id="recording-time"></span>
+           </div>
+          <div id="media-preview">
+            <!-- canvas to show preview of picture -->              
+            <canvas id="previewImg" class="hide" width="80" height="60" ></canvas>           
+          </div> 
+
+          <video id="video" width="440" height="280" autoplay></video>
+          <div id="mediaBtns" class="cam-box">
             <button id="takePhoto" title="Take a photo" class="fas fa-camera" disabled></button>
             <button id="start-rec" title="Start Recording" class="fas fa-video" disabled></button>
             <button id="pause-rec" title="Pause Recording" class="far fa-pause-circle" disabled></button>
             <button id="delete-media" title="Delete photo or video" class="far fa-trash-alt" disabled></button>
+            
           </div>
+
+          <div id="media_lblerror" class="error-lbl hide" ></div>
 
           <!-- hidden canvas to take picture -->
           <canvas id="hidden-canvas"  class="hide"></canvas>
       </div>
-    <br>
+
+    
     <!-- <p id="devices"></p> -->
 
     <form id="form1">
