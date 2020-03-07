@@ -1,62 +1,31 @@
+
+
 .main-container
 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-top:50px;
 }
 
-
-/* screen from 710 and lower */
-@media screen and (max-width: 710px)
- {
-   .media-box
-   {
-     margin: 0 auto;
-   }
-
-   .container
-   {
-     text-align: center;
-     padding-top: 40px;
-   }
-
-   .txtBox
-   {
-     width: 100%;
-     margin-top: 10px;
-   }
-
-   .lbl
-   {
-     padding-bottom: 10px;
-   }
-
+.media-box {
+    background-color: #000000;
+    /*padding-bottom: 35px;*/
 }
 
-/* screen from 711 and wider */
-@media screen and (min-width: 711px) and (max-width: 789px)
+.space-between
 {
-  .container
-  {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-  }
-
+  visibility: hidden;
+  /*margin-bottom: -20px;*/
 }
+
 
 button
 {
   font-size: 23px;
   border: none;
-  background-color: #00000000;
+  background-color:rgba(238, 238, 238, 0.00);
   cursor: pointer;
-
-  /* TEST ONLY CUZ NO INTERNET ********************* */
-   /* width: 20px;
-  height: 20px;
-  background-color: red;  */
 }
 
 :disabled
@@ -68,6 +37,55 @@ button
 video
 {
   border: 1px solid black;
+}
+
+#previewImg 
+{
+    position: absolute;
+    margin-top: 210px;
+    margin-left: 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    z-index: 8;
+}
+
+#img-prev
+{
+    position:absolute;
+    z-index: 9;
+}
+
+.cam-box {
+    /*position: absolute;*/
+    color: white;
+    font-size: 15px;
+    z-index: 8;
+    margin-bottom: 5px;
+}
+
+#cam-box-top
+{
+    font-size: 18px;
+    margin-left: 340px;
+    margin-top: 10px;
+}
+
+#change-cam-btn
+{
+    color:white;
+    font-size: 15px;
+}
+
+#mediaBtns
+{
+    top: 340px;
+}
+
+#mediaBtns button
+{
+    color:white;
+    font-size: 25px;
+    margin-left: 40px;
 }
 
 /* camera off overlay */
@@ -96,11 +114,11 @@ video
 
 #media-preview
 {
-  position: absolute;
+  /*position: absolute;
   top: 218px;
   left: 15px;
   border: 1px solid white;
-  cursor: pointer;
+  cursor: pointer;*/
 }
 
 .hide
@@ -113,3 +131,204 @@ video
   background-color: #abababbd;
   border: 1px solid black;
 }
+
+.error-lbl 
+{
+    color: red;
+    text-align: center;
+    margin: 5px auto;
+}
+
+/***** CONFIRM BOX *****/
+#modal-area {
+    /*display: none;*/
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(18, 18, 18, 0.1);
+}
+
+#confirm-box {
+    background-color: #087bb3;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid black;
+    width: 150px;
+    color: black;
+}
+
+#confirm-box-text
+{
+    font-size: 15px;
+}
+
+#btnYN
+{
+    float:right;
+}
+
+.modal-btn
+{
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+}
+.modal-btn:focus, modal-btn:hover
+{
+    color: #8b8b8b;
+    text-decoration: none;
+    cursor:pointer;
+}
+/***** END CONFIRM ****/
+
+/* screen from 710 and lower */
+@media screen and (max-width: 710px) {
+    .media-box {
+        margin: 0 auto;
+    }
+
+    .container {
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .txtBox {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .lbl {
+        padding-bottom: 10px;
+    }
+
+    .space-between {
+        display: none;
+    }
+
+    #confirm-box {
+        margin: 45% auto;
+    }
+
+    /* fix video size and elements*/
+    #video {
+        width: 350px;
+        height: 450px;
+    }
+
+    #cam-box-top 
+    {
+        margin-left: 255px;
+
+    }
+
+    #previewImg {
+        margin-top: 380px;
+    }
+
+    #cam-overlay {
+        width: 348px;
+        height: 495px;
+    }
+    #cam-overlay span 
+    {
+        margin-top: 160px;
+    }
+}
+
+/* screen from 711 to 789 */
+@media screen and (min-width: 711px) and (max-width: 789px)
+{
+  .container
+  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align:center;
+  }
+  .space-between
+  {
+    display: none;
+  }
+}
+
+/* screen from 790 and wider */
+@media screen and (min-width: 790px)
+ {
+   .container
+   {
+     margin-top: 50px;
+   }
+
+   .txtBox
+   {
+     float: right;
+   }
+
+   .lbl
+   {
+     padding-right: 30px;
+   }
+ }
+
+/* 1100 and wider - fix so the content don't separate so far */
+ @media screen and (min-width: 1100px)
+ {
+   .main-container
+   {
+     justify-content: center;
+   }
+   .container
+   {
+     padding-left: 120px;
+   }
+ }
+
+ /* SEARCH*/
+#display-data 
+{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+#search-box
+{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+#searchTxt
+{
+    width: 400px;
+    height: 24px;
+}
+
+#searchBtn
+{
+    width: 100px;
+    height: 30px;
+}
+
+#lbl-area {
+    padding-bottom: 30px;
+    margin-left: 40px;
+    font-size: 18px;
+    /*width: 400px*/
+    
+}
+
+ .lbl2
+ {
+     /*float: right;*/
+     padding-left: 40px;
+ }
+
