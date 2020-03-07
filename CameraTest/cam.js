@@ -122,7 +122,7 @@ function SwitchCams()
     }
 
     camSettings.video.facingMode = camType;
-    video.srcObject = null;
+    userCamStream.getTracks().forEach(track => { track.stop(); });
     AskUserPermission();
 }
 
